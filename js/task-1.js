@@ -1,21 +1,12 @@
-function logToConsoleAndPage(message) {
-  console.log(message);
-  const output = document.getElementById('console-output');
-  output.textContent += message + '\n';
-}
+const categories = document.querySelectorAll('#categories .item');
 
-const categoriesList = document.querySelector('#categories');
+console.log(`Number of categories: ${categories.length}`);
 
-const categoryItems = categoriesList.querySelectorAll('li.item');
+categories.forEach(category => {
+  const title = category.querySelector('h2').textContent;
 
-logToConsoleAndPage(`Number of categories: ${categoryItems.length}`);
+  const itemsCount = category.querySelectorAll('ul li').length;
 
-categoryItems.forEach(item => {
-  const categoryTitle = item.querySelector('h2').textContent;
-
-  const categoryElements = item.querySelectorAll('ul li');
-  const elementsCount = categoryElements.length;
-
-  logToConsoleAndPage(`Category: ${categoryTitle}`);
-  logToConsoleAndPage(`Elements: ${elementsCount}`);
+  console.log(`Category: ${title}`);
+  console.log(`Elements: ${itemsCount}`);
 });
